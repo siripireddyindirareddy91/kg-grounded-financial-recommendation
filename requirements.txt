@@ -1,0 +1,15 @@
+fastapi>=0.115,<1
+uvicorn>=0.34,<1
+sqlalchemy>=2.0,<3
+psycopg[binary]>=3.2,<4
+pydantic>=2.10,<3
+PyJWT>=2.10,<3
+networkx>=3.4,<4
+langgraph>=0.2,<2
+python-multipart>=0.0.20
+pypdf>=5,<7
+python-docx>=1.1,<2
+reportlab>=4.2,<5
+neo4j>=5.27,<7
+httpx>=0.28,<1
+pytest>=8,<10
