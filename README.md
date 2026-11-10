@@ -55,7 +55,7 @@ python scripts/configure-vercel.py
 vercel --prod --yes
 ```
 
-Vercel serves Next.js and the Python function in one project. `/api/*` rewrites to `/api/index`; development forwards to port 8000. Set `DATABASE_URL` in Vercel for durable storage. Without it, Vercel uses `/tmp/fingraph.db`, an **ephemeral demo database that may reset or differ across function instances**. The interface explicitly warns about this. It is not durable production storage.
+Vercel serves Next.js and the Python function in one project. `/api/*` rewrites to `/api/index`; development forwards to port 8000. The deployed project has a **free Neon PostgreSQL database in Singapore**, connected through Vercel's managed DATABASE_URL environment variable. Data persists across function instances. For a fresh deployment, set DATABASE_URL before first use. Without it, Vercel falls back to `/tmp/fingraph.db`, an ephemeral demo database that may reset or differ across instances; the interface warns about that state.
 
 Alternative: deploy `render.yaml` with managed PostgreSQL and update the frontend API rewrite to that origin. Docker: set `POSTGRES_PASSWORD` and `JWT_SECRET_KEY`, then `docker compose -f infrastructure/docker-compose.yml up --build`. The named PostgreSQL volume persists data.
 
